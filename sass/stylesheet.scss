@@ -1,0 +1,89 @@
+
+$bgcolor_player: rgb(80, 80, 80);
+$color_shadow: rgba(0, 0, 0, 0.5);
+$seekbar_color: rgb(77, 162, 171);
+$seek_color: rgb(255, 255, 255);
+$time_display_color: $seek_color;
+
+$img_play : url('../images/icons/play.png');
+$img_pause: url('../images/icons/pause.png');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    padding: 100px 0 0;
+}
+
+.audio_player {
+    height: 60px;
+    width: 400px;
+    margin: 0 auto 30px;
+    padding: 15px;
+    border-radius: 5px;
+    background: $bgcolor_player;
+    box-shadow: 0px 2px 10px $color_shadow;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .button {
+        width: 30px;
+        height: 30px;
+        outline: none;
+        cursor: pointer;
+        border-radius: 100%;
+        box-shadow: 0px 3px 10px $color_shadow;
+        background-color: $bgcolor_player;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        &.play {
+            background-image: $img_play;
+        }
+
+        &.pause {
+            background-image: $img_pause;
+        }
+    }
+
+    .seekbar {
+        -webkit-appearance: none;
+
+        width: 278px;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::-webkit-slider-runnable-track {
+            height: 5px;
+            border-radius: 20px;
+            background: $seekbar_color;
+            box-shadow: inset 0px 2px 1px $color_shadow;
+            -webkit-appearance: none;
+        }
+
+        &::-webkit-slider-thumb {
+            width: 15px;
+            height: 15px;
+            margin-top: -4px;
+            border-radius: 100%;
+            background: $seek_color;
+            box-shadow: 0px 1px 10px $color_shadow;
+            -webkit-appearance: none;
+        }
+    }
+
+    .time_display {
+        font-family: muli, sans-serif;
+        font-size: 16px;
+        color: $time_display_color;
+    }
+}
